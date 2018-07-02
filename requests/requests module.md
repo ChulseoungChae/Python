@@ -153,3 +153,32 @@ ex)
     
     print(r.json())   #json response일 경우 딕셔너리 타입으로 바로 변환
     
+        # buf_dict_list를 json형식의 str으로 변환하여 decode_data 변수에 저장
+        # json 인코딩 - json.dump()
+        # 형식 : json.dumps(obj, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, default=None, sort_keys=False, **kw)
+        # 설명 : 데이터를 JSON 포맷으로 인코딩한다.
+        # 인수 : obj - 인코딩 대상 객체 
+                 indent - indent를 위한 스페이스 수를 지정한다. 
+                 sort_keys - True로 지정하면 키 값으로 정렬된다.
+        # 반환값 : JSON 형식의 str 객체
+        
+          JSON.LOADS()
+    # 형식	json.loads(s, encoding=None, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_hook=None, **kw)
+    # 설명	데이터를 JSON 포맷에서 디코딩한다.
+    # 인수	s - 디코딩 대상 객체 
+    # parse_float - JSON에 포함된 부동소수점 수의 취급을 지정한다. 
+    # parse_int - JSON에 포함된 정수의 취급을 지정한다.
+    # 반환값	Python 객체
+
+
+    -인코딩과 디코딩 변환표
+    # JSON	Python
+    # 객체	사전
+    # 배열	리스트
+    # 문자열	문자열
+    # 수치	수치
+    # true	True
+    # false	False
+    # null	None
+    # 인코딩할 때 튜플은 리스트와 같게 취급
+        
