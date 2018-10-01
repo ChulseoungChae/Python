@@ -93,7 +93,7 @@ def Excel(dict):
                 for k in all_key:
                     if k_data[j] == k:
                         sheet.cell(row=1, column=_count, value=key).fill = PatternFill(patternType='solid', fgColor=Color('4785F0'))
-                        sheet.cell(row=all_key.index(k)+2, column=2, value=v_data[j]).fill = PatternFill(patternType='solid', fgColor=Color('FFFF00'))
+                        sheet.cell(row=all_key.index(k)+2, column=_count, value=v_data[j]).fill = PatternFill(patternType='solid', fgColor=Color('FFFF00'))
 
     excel_file.save('total_count.xlsx')
 
