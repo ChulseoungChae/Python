@@ -85,7 +85,7 @@ def Excel(dict):
         sheet.cell(row=i + 2, column=1, value=all_key[i]).fill = PatternFill(patternType='solid', fgColor=Color('4785F0'))
         sheet.cell(row=i + 2, column=2, value=all_value[i]).fill = PatternFill(patternType='solid', fgColor=Color('FFFF00'))
 
-    _count = 2
+    _count = 1
     for key in dict:
         k_data, v_data = dict2list(dict[key])
         _count +=1
