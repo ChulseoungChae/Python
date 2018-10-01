@@ -117,12 +117,13 @@ if __name__ == "__main__":
             _num = 0
             for day_file in day_list:
                 spd_list = []
-                with open(day_file, mode='r') as f:
-                    reader = csv.reader(f)
-                    for row in reader:
-                        spd_list.append(row[5])
-                    spd_list[0:1] = []
-                    _num += len(spd_list)
+                if _carid == '001':
+                    with open(day_file, mode='r') as f:
+                        reader = csv.reader(f)
+                        for row in reader:
+                            spd_list.append(row[5])
+                        spd_list[0:1] = []
+                        _num += len(spd_list)
 
             print('%s is ok' %carid)
             _dict[_carid] = _num
