@@ -47,13 +47,11 @@ def graph(k_data, v_data):
 '''
 def User_input(month_dict):
     user_input = input("데이터를 확인할 월을 입력하세요(ex. 201406)(모든월: all 입력 ):")
-
     if user_input in month_dict:
         data = month_dict[user_input]
     else:
         print('다시 입력해주세요')
         User_input()
-
     return data
 '''
 
@@ -80,14 +78,23 @@ def Excel(dict):
     excel_file = Workbook()
     sheet = excel_file.active
 
+    all_key, all_value = dict2list(dict['all'])
+    for i in range(len(all_key)):
+        sheet.cell(row=1, column=2, value='all').fill = PatternFill(patternType='solid', fgColor=Color('4785F0'))
+        sheet.cell(row=i + 2, column=1, value=all_key[i]).fill = PatternFill(patternType='solid', fgColor=Color('4785F0'))
+        sheet.cell(row=i + 2, column=2, value=all_value[i]).fill = PatternFill(patternType='solid', fgColor=Color('FFFF00'))
 
+    _count = 1
     for key in dict:
         k_data, v_data = dict2list(dict[key])
-        if key == 'all':
-            for i in range(len(k_data)):
-                sheet.cell(row=1, column=2, value=key).fill = PatternFill(patternType='solid', fgColor=Color('4785F0'))
-                sheet.cell(row=i+2, column=1, value=k_data[i]).fill = PatternFill(patternType='solid', fgColor=Color('FFFF00'))
-                sheet.cell(row=i+2, column=2, value=v_data[i]).fill = PatternFill(patternType='solid', fgColor=Color('FFFF00'))
+        _count +=1
+        if key != 'all':
+            for j in range(len(k_data)):
+                for k in all_key:
+                    if k_data[j] == k:
+                        sheet.cell(row=1, column=_count, value=key).fill = PatternFill(patternType='solid', fgColor=Color('4785F0'))
+                        sheet.cell(row=all_key.index(k)+2, column=2, value=v_data[i]).fill = PatternFill(patternType='solid', fgColor=Color('FFFF00'))
+
     excel_file.save('total_count.xlsx')
 
 
