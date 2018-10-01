@@ -88,6 +88,8 @@ def Excel(dict):
                 sheet.cell(row=1, column=2, value=key).fill = PatternFill(patternType='solid', fgColor=Color('4785F0'))
                 sheet.cell(row=i+2, column=1, value=k_data[i]).fill = PatternFill(patternType='solid', fgColor=Color('FFFF00'))
                 sheet.cell(row=i+2, column=2, value=v_data[i]).fill = PatternFill(patternType='solid', fgColor=Color('FFFF00'))
+    excel_file.save('total_count.xlsx')
+
 
 
 if __name__ == "__main__":
